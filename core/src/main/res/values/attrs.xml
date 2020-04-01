@@ -13,5 +13,11 @@
         <attr name="squaredFinder" format="boolean" />
         <attr name="borderAlpha" format="float" />
         <attr name="finderOffset" format="dimension" />
+        <attr name="borderOffset" format="dimension" />
+        <attr name="outerBorderWidth" format="dimension" />
+        <attr name="outerBorderColor" format="color" />
+        <attr name="outerCornerRadius" format="dimension" />
+        <attr name="topOffset" format="dimension" />
+        <attr name="bottomView" format="reference" />
     </declare-styleable>
 </resources>

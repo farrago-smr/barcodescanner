@@ -1,21 +1,32 @@
 package me.dm7.barcodescanner.core;
 
 import android.graphics.Rect;
+import android.view.View;
 
 public interface IViewFinder {
 
     void setLaserColor(int laserColor);
+
     void setMaskColor(int maskColor);
+
     void setBorderColor(int borderColor);
+
     void setBorderStrokeWidth(int borderStrokeWidth);
+
     void setBorderLineLength(int borderLineLength);
+
     void setLaserEnabled(boolean isLaserEnabled);
 
     void setBorderCornerRounded(boolean isBorderCornersRounded);
+
     void setBorderAlpha(float alpha);
+
     void setBorderCornerRadius(int borderCornersRadius);
+
     void setViewFinderOffset(int offset);
+
     void setSquareViewFinder(boolean isSquareViewFinder);
+
     /**
      * Method that executes when Camera preview is starting.
      * It is recommended to update framing rect here and invalidate view after that. <br/>
@@ -50,4 +61,18 @@ public interface IViewFinder {
      * @return height of a view
      */
     int getHeight();
+
+    void setOuterBorderStrokeWidth(int mOuterBorderWidth);
+
+    void setOuterBorderColor(int mOuterBorderColor);
+
+    void setOuterBorderCornerRadius(int mOuterCornerRadius);
+
+    void setViewFinderTopOffset(int mViewFinderTopOffset);
+
+    void setBottomView(View fl);
+
+    int getTotalPreviewHeight();
+
+    void setViewFinderMeasureCallback(ViewFinderMeasureCallback viewFinderMeasureCallback);
 }

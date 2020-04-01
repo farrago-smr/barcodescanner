@@ -6,19 +6,32 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.Toast;
 
 import com.google.zxing.Result;
 
+import me.dm7.barcodescanner.core.ViewFinderMeasureCallback;
 import me.dm7.barcodescanner.zxing.ZXingScannerView;
 
 public class SimpleScannerFragment extends Fragment implements ZXingScannerView.ResultHandler {
     private ZXingScannerView mScannerView;
+    View bv;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        mScannerView = new ZXingScannerView(getActivity());
-        return mScannerView;
+        FrameLayout view = (FrameLayout) inflater.inflate(R.layout.xml_example, container);
+        mScannerView = view.findViewById(R.id.scanner_view);
+        bv = view.findViewById(R.id.bottom_view);
+        mScannerView.setViewFinderMeasureCallback(new ViewFinderMeasureCallback() {
+            @Override
+            public void onMeasured() {
+                int bottomViewMargin = mScannerView.getTotalPreviewHeight();
+                FrameLayout.LayoutParams lp = (FrameLayout.LayoutParams) bv.getLayoutParams();
+                lp.topMargin = bottomViewMargin;
+            }
+        });
+        return view;
     }
 
     @Override

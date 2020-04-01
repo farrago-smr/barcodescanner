@@ -30,7 +30,7 @@ allprojects {
 subprojects {
     afterEvaluate { Project project ->
         ext.pluginContainer = project.getPlugins()
-        if(ext.pluginContainer.hasPlugin("com.android.application") || ext.pluginContainer.hasPlugin("com.android.library")) {
+        if (ext.pluginContainer.hasPlugin("com.android.application") || ext.pluginContainer.hasPlugin("com.android.library")) {
             android {
                 compileSdkVersion versions.compile_sdk
                 buildToolsVersion versions.build_tools
@@ -55,10 +55,11 @@ subprojects {
         def bintrayUser = properties.getProperty('bintray.user')
         def bintrayApikey = properties.getProperty('bintray.apikey')
 
-        if(project.isLibrary && bintrayUser?.trim() && bintrayApikey?.trim()) {
+        if (project.isLibrary && bintrayUser?.trim() && bintrayApikey?.trim()) {
             configure(project) {
                 apply plugin: 'com.github.dcendents.android-maven'
-                group = project.group                               // Maven Group ID for the artifact
+                group = project.group
+                // Maven Group ID for the artifact
 
                 install {
                     repositories.mavenInstaller {
