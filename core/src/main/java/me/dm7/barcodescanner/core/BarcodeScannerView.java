@@ -43,6 +43,9 @@ public abstract class BarcodeScannerView extends FrameLayout implements Camera.P
     private int mOuterCornerRadius = 0;
 
     private int mViewFinderTopOffset = 0;
+
+    private int mViewFinderMargin = getResources().getInteger(R.integer.viewfinder_margin);
+
     @ColorInt
     private int mOuterBorderColor = getResources().getColor(R.color.viewfinder_border);
 
@@ -86,6 +89,7 @@ public abstract class BarcodeScannerView extends FrameLayout implements Camera.P
             mOuterCornerRadius = a.getDimensionPixelSize(R.styleable.BarcodeScannerView_outerCornerRadius, mOuterCornerRadius);
             mViewFinderTopOffset = a.getDimensionPixelSize(R.styleable.BarcodeScannerView_topOffset, mViewFinderTopOffset);
             bottomViewId = a.getResourceId(R.styleable.BarcodeScannerView_bottomView, 0);
+            mViewFinderMargin = a.getDimensionPixelSize(R.styleable.BarcodeScannerView_viewfinderSideMargin, mViewFinderMargin);
 
         } finally {
             a.recycle();
@@ -154,6 +158,7 @@ public abstract class BarcodeScannerView extends FrameLayout implements Camera.P
         viewFinderView.setOuterBorderColor(mOuterBorderColor);
         viewFinderView.setOuterBorderCornerRadius(mOuterCornerRadius);
         viewFinderView.setViewFinderTopOffset(mViewFinderTopOffset);
+        viewFinderView.setViewFinderMargin(mViewFinderMargin);
         return viewFinderView;
     }
 
@@ -245,6 +250,12 @@ public abstract class BarcodeScannerView extends FrameLayout implements Camera.P
     public void setTopOffset(int topOff) {
         mViewFinderTopOffset = topOff;
         mViewFinderView.setViewFinderTopOffset(mViewFinderTopOffset);
+        mViewFinderView.setupViewFinder();
+    }
+
+    public void setMargin(int topOff) {
+        mViewFinderMargin = topOff;
+        mViewFinderView.setViewFinderMargin(mViewFinderMargin);
         mViewFinderView.setupViewFinder();
     }
 

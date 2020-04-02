@@ -56,10 +56,16 @@ public class ViewFinderView extends View implements IViewFinder {
     private int mViewFinderTopOffset = 0;
 
     int mOuterCornerRadius;
+    private int mViewFinderSideMargin = 0;
 
     @Override
     public void setViewFinderMeasureCallback(ViewFinderMeasureCallback viewFinderMeasureCallback) {
         this.viewFinderMeasureCallback = viewFinderMeasureCallback;
+    }
+
+    @Override
+    public void setViewFinderMargin(int mViewFinderMargin) {
+        this.mViewFinderSideMargin = mViewFinderMargin;
     }
 
     ViewFinderMeasureCallback viewFinderMeasureCallback;
@@ -324,7 +330,8 @@ public class ViewFinderView extends View implements IViewFinder {
                 height = (int) (getHeight() * LANDSCAPE_HEIGHT_RATIO);
                 width = (int) (LANDSCAPE_WIDTH_HEIGHT_RATIO * height);
             } else {
-                width = (int) (getWidth() * PORTRAIT_WIDTH_RATIO);
+                // width = (int) (getWidth() * PORTRAIT_WIDTH_RATIO);
+                width = getWidth() - 2 * (mViewFinderSideMargin + mViewFinderOuterBorderWidth + mDefaultMaskBorderStrokeWidth);
                 height = (int) (PORTRAIT_WIDTH_HEIGHT_RATIO * width);
             }
         }

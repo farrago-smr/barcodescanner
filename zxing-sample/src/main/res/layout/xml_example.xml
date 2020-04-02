@@ -18,7 +18,8 @@
         app:outerBorderWidth="10dp"
         app:outerCornerRadius="20dp"
         app:roundedCorner="false"
-        app:topOffset="90dp" />
+        app:topOffset="90dp"
+        app:viewfinderSideMargin="20dp" />
 
     <include layout="@layout/bottom_view" />
 </FrameLayout>

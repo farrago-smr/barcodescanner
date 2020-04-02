@@ -18,6 +18,7 @@
         <attr name="outerBorderColor" format="color" />
         <attr name="outerCornerRadius" format="dimension" />
         <attr name="topOffset" format="dimension" />
+        <attr name="viewfinderSideMargin" format="dimension" />
         <attr name="bottomView" format="reference" />
     </declare-styleable>
 </resources>

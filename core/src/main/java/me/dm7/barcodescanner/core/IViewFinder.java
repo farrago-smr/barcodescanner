@@ -75,4 +75,6 @@ public interface IViewFinder {
     int getTotalPreviewHeight();
 
     void setViewFinderMeasureCallback(ViewFinderMeasureCallback viewFinderMeasureCallback);
+
+    void setViewFinderMargin(int mViewFinderMargin);
 }
