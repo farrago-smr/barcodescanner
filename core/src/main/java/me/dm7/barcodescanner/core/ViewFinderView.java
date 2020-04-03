@@ -45,7 +45,7 @@ public class ViewFinderView extends View implements IViewFinder {
     protected boolean mSquareViewFinder;
     private boolean mIsLaserEnabled;
     private float mBordersAlpha;
-    private int mViewFinderOffset = 0;
+    private int mViewFinderOffset = 10;
 
     private int mViewFinderOuterBorderWidth = 0;
 
